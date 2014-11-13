@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{8BB54264-1D2D-CCDC-BFEB-D664273FA576}</ProjectGuid>
+	<ProjectGuid>{4E501DB1-EF3D-1B5E-6BBE-663343123C8B}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Editor\KinectCopyPluginDataHelper.cs" />
+     <None Include="Assets\Sample Assets\Prototyping\Shaders\WorldCoord Diffuse.shader" />
      <None Include="Assets\GreenScreen\Materials\GreenScreenShader.shader" />
      <None Include="Assets\Elementals\!Readme.txt" />
  <Reference Include="UnityEditor.Graphs">
@@ -55,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{CD34243B-EA33-AC66-4F4D-5663CBC4E9F3}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{45AF6FD9-E32F-79B5-159A-783E88F9ED3D}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{CD34243B-EA33-AC66-4F4D-5663CBC4E9F3}</ProjectGuid>
+	<ProjectGuid>{45AF6FD9-E32F-79B5-159A-783E88F9ED3D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -131,6 +131,7 @@
      <Compile Include="Assets\Standard Assets\Windows\Kinect\TrackingConfidence.cs" />
      <Compile Include="Assets\Standard Assets\Windows\Kinect\TrackingState.cs" />
      <Compile Include="Assets\Standard Assets\Windows\Kinect\Vector4.cs" />
+     <None Include="Assets\Sample Assets\Prototyping\Shaders\WorldCoord Diffuse.shader" />
      <None Include="Assets\GreenScreen\Materials\GreenScreenShader.shader" />
      <None Include="Assets\Elementals\!Readme.txt" />
   </ItemGroup>

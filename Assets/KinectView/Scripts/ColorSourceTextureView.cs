@@ -2,15 +2,19 @@
 using System.Collections;
 using Windows.Kinect;
 
-public class ColorSourceView : MonoBehaviour
+public class ColorSourceTextureView : MonoBehaviour
 {
     public GameObject ColorSourceManager;
-    private ColorSourceManager _ColorManager;
-    
-    void Start ()
-    {
-		gameObject.renderer.material.SetTextureScale("_MainTex", new Vector2(-1, 1));
 
+    private ColorSourceManager _ColorManager;
+	private GUITexture _GUITexture;
+
+    void Start ()
+	{
+		_ColorManager = ColorSourceManager.GetComponent<ColorSourceManager>();
+		_GUITexture = GetComponent<GUITexture>();
+		//_GUITexture.renderer.material.SetTextureScale("_MainTex", new Vector2(-1, 1));
+		
 		//var newScale = new Vector3();
 		//newScale.x = _ColorManager.ColorWidth;
 		//newScale.y = _ColorManager.ColorHeight;
@@ -24,12 +28,13 @@ public class ColorSourceView : MonoBehaviour
             return;
         }
         
-        _ColorManager = ColorSourceManager.GetComponent<ColorSourceManager>();
         if (_ColorManager == null)
         {
             return;
         }
-        
-        gameObject.renderer.material.mainTexture = _ColorManager.GetColorTexture();
+
+		_GUITexture.texture = _ColorManager.GetColorTexture();
+		//_GUITexture.texture.
+		//_GUITexture.texture.tran
     }
 }

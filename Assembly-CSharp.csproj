@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{5F06C274-5F9C-8A86-3A0F-0E9CFB6DCA46}</ProjectGuid>
+	<ProjectGuid>{868FFD31-C2B8-4872-F98B-E29B249C25BB}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,14 +46,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CameraMatrix.cs" />
      <Compile Include="Assets\Elementals\Scripts\OrbitCamera.cs" />
      <Compile Include="Assets\Elementals\Scripts\TestParticles.cs" />
      <Compile Include="Assets\GreenScreen\Scripts\CoordinateMapperManager.cs" />
      <Compile Include="Assets\GreenScreen\Scripts\CoordinateMapperView.cs" />
+     <Compile Include="Assets\KinectView\Scripts\BodySource2DView.cs" />
      <Compile Include="Assets\KinectView\Scripts\BodySourceCustomView.cs" />
      <Compile Include="Assets\KinectView\Scripts\BodySourceManager.cs" />
      <Compile Include="Assets\KinectView\Scripts\BodySourceView.cs" />
      <Compile Include="Assets\KinectView\Scripts\ColorSourceManager.cs" />
+     <Compile Include="Assets\KinectView\Scripts\ColorSourceTextureView.cs" />
      <Compile Include="Assets\KinectView\Scripts\ColorSourceView.cs" />
      <Compile Include="Assets\KinectView\Scripts\DepthSourceManager.cs" />
      <Compile Include="Assets\KinectView\Scripts\DepthSourceView.cs" />
@@ -61,6 +64,8 @@
      <Compile Include="Assets\KinectView\Scripts\InfraredSourceManager.cs" />
      <Compile Include="Assets\KinectView\Scripts\InfraredSourceView.cs" />
      <Compile Include="Assets\KinectView\Scripts\MultiSourceManager.cs" />
+     <Compile Include="Assets\LineToObject.cs" />
+     <Compile Include="Assets\RotatableGuiItem.cs" />
      <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
      <Compile Include="Assets\Sky FX Pack\Scripts\LightBeamsControlScript.cs" />
      <Compile Include="Assets\Sky FX Pack\Scripts\LookAtBehaviour.cs" />
@@ -68,12 +73,14 @@
      <Compile Include="Assets\Sky FX Pack\Scripts\RayBehavior.cs" />
      <Compile Include="Assets\Sky FX Pack\Scripts\RotateBehaviour.cs" />
      <Compile Include="Assets\Sky FX Pack\Scripts\ScrollBehaviour.cs" />
+     <Compile Include="Assets\TweenObjectToTransforms.cs" />
+     <None Include="Assets\Sample Assets\Prototyping\Shaders\WorldCoord Diffuse.shader" />
      <None Include="Assets\GreenScreen\Materials\GreenScreenShader.shader" />
      <None Include="Assets\Elementals\!Readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{CD34243B-EA33-AC66-4F4D-5663CBC4E9F3}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{45AF6FD9-E32F-79B5-159A-783E88F9ED3D}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

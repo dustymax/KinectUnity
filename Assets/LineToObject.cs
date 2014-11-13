@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LineToObject : MonoBehaviour {
     // Populate this array in the order you want the line to travel. 
-    public Transform transform;
+    public Transform toTransform;
     public Material mat;
 
     private LineRenderer lineRenderer;
@@ -19,6 +19,6 @@ public class LineToObject : MonoBehaviour {
     void Update()
     {
         lineRenderer.SetPosition(0, gameObject.transform.position);
-        lineRenderer.SetPosition(1, transform.position);
+        lineRenderer.SetPosition(1, toTransform.position);
 	}
 }

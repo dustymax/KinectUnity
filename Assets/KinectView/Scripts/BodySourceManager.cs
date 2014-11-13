@@ -7,12 +7,18 @@ public class BodySourceManager : MonoBehaviour
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;
     private Body[] _Data = null;
-    
+
+	public Windows.Kinect.KinectSensor Sensor
+	{
+		get { return _Sensor; }
+		set { _Sensor = value; }
+	}
+
     public Body[] GetData()
     {
         return _Data;
     }
-    
+
 
     void Start () 
     {
