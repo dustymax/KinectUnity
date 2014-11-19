@@ -24,14 +24,15 @@ public class CameraMatrix : MonoBehaviour {
 
 	void Start () {
 		_camera = GetComponent<Camera>();
-	}
-	
-	void Update () {
+
 		Matrix4x4 m = new Matrix4x4();
+
 		float width = Screen.width;
 		float height = Screen.height;
+		
 		float x0 = 0f;
 		float y0 = 0f;
+		
 		m.m00 = 2f * m00 / width;
 		m.m01 = -2f * m01 / width;
 		m.m02 = (width - 2f * m02 + 2f * x0) / width;

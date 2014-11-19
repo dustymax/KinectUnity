@@ -5,6 +5,7 @@ using Kinect = Windows.Kinect;
 
 public class BodySourceView : MonoBehaviour 
 {
+	private Matrix4x4 R = new Matrix4x4();
     public Material BoneMaterial;
     public GameObject BodySourceManager;
     public float scale = 10f;
@@ -111,8 +112,15 @@ public class BodySourceView : MonoBehaviour
     
     private GameObject CreateBodyObject(ulong id)
     {
+		R.SetColumn(0, new Vector4(0.999973f,		0.00616668f,		0.00392046f,		52.4835f));
+		R.SetColumn(1, new Vector4(-0.00616208f,	0.99998f,			-0.00118369f,		-0.149448f));
+		R.SetColumn(2, new Vector4(-0.00392768f,	0.0011595f,			0.999992f,			2.54919f));
+		R.SetColumn(3, new Vector4(0f,				0f,					0f,					1f));
+
         GameObject body = new GameObject("Body:" + id);
         body.transform.parent = gameObject.transform;
+		body.transform.localPosition = Vector3.zero;
+		body.transform.localRotation = Quaternion.identity;
         
         for (Kinect.JointType jt = Kinect.JointType.SpineBase; jt <= Kinect.JointType.ThumbRight; jt++)
         {
@@ -137,21 +145,29 @@ public class BodySourceView : MonoBehaviour
         for (Kinect.JointType jt = Kinect.JointType.SpineBase; jt <= Kinect.JointType.ThumbRight; jt++)
         {
             Kinect.Joint sourceJoint = body.Joints[jt];
-            Kinect.Joint? targetJoint = null;
+			Kinect.Joint? targetJoint = null;
+			Transform targetJointObj = null;
             
             if(_BoneMap.ContainsKey(jt))
             {
                 targetJoint = body.Joints[_BoneMap[jt]];
+				if (targetJoint.HasValue)
+				{
+					targetJointObj = bodyObject.transform.FindChild(targetJoint.Value.JointType.ToString());
+				}
             }
             
             Transform jointObj = bodyObject.transform.FindChild(jt.ToString());
-            jointObj.localPosition = GetVector3FromJoint(sourceJoint) - offset;
-            
+			jointObj.localPosition = GetVector3FromJoint(sourceJoint);
+
+			Vector3 newPos = R.MultiplyVector(jointObj.localPosition);
+			jointObj.localPosition = newPos + offset;
+
             LineRenderer lr = jointObj.GetComponent<LineRenderer>();
-            if(targetJoint.HasValue)
+            if(targetJointObj != null)
             {
-                lr.SetPosition(0, jointObj.localPosition);
-                lr.SetPosition(1, GetVector3FromJoint(targetJoint.Value) - offset);
+                lr.SetPosition(0, jointObj.position);
+                lr.SetPosition(1, targetJointObj.position);
                 lr.SetColors(GetColorForState (sourceJoint.TrackingState), GetColorForState(targetJoint.Value.TrackingState));
             }
             else
